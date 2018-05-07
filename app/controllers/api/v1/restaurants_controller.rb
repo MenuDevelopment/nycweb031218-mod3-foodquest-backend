@@ -20,6 +20,10 @@ class Api::V1::RestaurantsController < ApplicationController
 
   private
 
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :json, :user_id)
+  end
+
   def grab_user
     @user = User.find(params[:user_id])
   end

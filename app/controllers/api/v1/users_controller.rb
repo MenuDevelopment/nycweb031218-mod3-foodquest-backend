@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :grab_user, only: [:create, :update, :destroy]
+  before_action :grab_user, only: [:update, :destroy]
 
   def index
     @users = User.all
@@ -7,15 +7,33 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    @user = User.create(user_params)
+    if @user.save
+      render json: @user, status: :accepted
+    else
+      render json: { errors: @user.errors.full_messages}, status: :unprocessible_entity
+    end
   end
 
   def update
+    @user.update(user_params)
+    if @user.save
+      render json: @user, status: :accepted
+    else
+      render json: { errors: @user.errors.full_messages}, status: :unprocessible_entity
+    end
   end
 
   def destroy
+    @user.destroy
+    render json: {body: nil, status: :no_content}
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :location)
+  end
 
   def grab_user
     @user = User.find(params[:id])
