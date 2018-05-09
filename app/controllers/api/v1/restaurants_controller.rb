@@ -9,6 +9,8 @@ class Api::V1::RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.create(restaurant_params)
+    @restaurant.location = params[:restaurant][:location]
+    @restaurant.hours = params[:restaurant][:hours]
     if @restaurant.save
       render json: @restaurant, status: :accepted
     else
@@ -34,7 +36,7 @@ class Api::V1::RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :json, :user_id)
+    params.require(:restaurant).permit(:name, :location, :user_id, :hours, :address, :have_visited, :want_to_visitc)
   end
 
   def grab_restaurant
