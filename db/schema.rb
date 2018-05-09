@@ -14,10 +14,13 @@ ActiveRecord::Schema.define(version: 20180507183517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "json"
+    t.string "address"
+    t.hstore "location"
+    t.string "hours", default: [], array: true
     t.bigint "user_id"
     t.boolean "have_visited"
     t.boolean "want_to_visit"
