@@ -14,6 +14,11 @@ https://github.com/kschlunz/foodquest_frontend
 
 #### Contributors:
 
+
+#### Technologies:
+API only RAILS implementation
+POSTGRESQL database
+
 Manuel Grullon, [Github](https://github.com/menudevelopment)
 
 Kate Schlunz, [Github](https://github.com/kschlun)
