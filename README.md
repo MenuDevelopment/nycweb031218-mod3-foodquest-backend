@@ -15,7 +15,7 @@ https://github.com/kschlunz/foodquest_frontend
 ## Requests:
 
 #### GET:
-A GET to localhost:3000/users/(user_id)/restaurants 
+A GET to localhost:3000/users/(user_id)/restaurants
 will return an array of all restaurants objects, reflecting places the User has saved
 
 ````
@@ -77,6 +77,7 @@ email: "test@test.com"
 
 ## Contributors:
 
+We are not currently taking contributions at this time. If you really wish to contribute to this program, send one of us a dm.
 
 #### Technologies:
 API only RAILS implementation
